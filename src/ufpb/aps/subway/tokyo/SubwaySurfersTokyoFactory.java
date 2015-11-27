@@ -9,6 +9,19 @@ import ufpb.aps.factory.SubwaySurfersPaisagem;
 import ufpb.aps.factory.SubwaySurfersPersonagem;
 
 public class SubwaySurfersTokyoFactory implements SubwaySurfersFactory {
+	
+	
+	private static SubwaySurfersTokyoFactory singleton;
+	
+	private SubwaySurfersTokyoFactory(){};
+
+	public static SubwaySurfersFactory getInstance() {
+		
+		if(singleton == null)
+			singleton = new SubwaySurfersTokyoFactory();
+		
+		return singleton;
+	}
 
 	@Override
 	public SubwaySurfersPersonagem criarPersonagem() {
@@ -34,6 +47,8 @@ public class SubwaySurfersTokyoFactory implements SubwaySurfersFactory {
 	public SubwaySurfersPaisagem criarPaisagem() {
 		return new SubwaySurfersTokyoPaisagem();
 	}
+
+	
 
 	
 
